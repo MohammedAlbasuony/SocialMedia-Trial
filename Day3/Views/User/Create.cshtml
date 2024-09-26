@@ -1,0 +1,34 @@
+﻿@using SocialMedia.BLL.ModelVM
+@using SocialMedia.DAL.Entities
+@model CreateUserVM
+@{
+
+    ViewData["Title"] = "Create"; 
+}
+<form asp-action="Create" asp-controller ="User">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Name</label>
+        <input asp-for = "Name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">
+        <span class="text-danger" asp-validation-for = "Name"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input asp-for="Email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email">
+        <span class="text-danger" asp-validation-for="Email"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Age</label>
+        <input asp-for="Age" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Age">
+        <span class="text-danger" asp-validation-for="Age"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input asp-for="Password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        <span class="text-danger" asp-validation-for="Password"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<script src="~/lib/jquery-validation/dist/additional-methods.min.js"></script>
+<script src="~/lib/jquery-validation/dist/additional-methods.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>

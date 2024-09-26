@@ -1,0 +1,27 @@
+﻿@using SocialMedia.BLL.ModelVM
+@using SocialMedia.DAL.Entities
+@model List<GetAllUserVM>
+
+<table id="myTable" class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">CreatedDate</th>
+            <th scope="col">IsDeleted</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.ID</th>
+                <td>@item.Name</td>
+                <td>@item.Age</td>
+                <td>@item.CreatedOn</td>
+                
+            </tr>
+        }
+    </tbody>
+</table>
