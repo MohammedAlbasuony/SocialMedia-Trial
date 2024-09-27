@@ -75,17 +75,13 @@ namespace SocialMedia.BLL.Service.Implement
         {
             try
             {
-                User use = new User()
-                {
-                    Name = user.Name,
-                    Age = user.Age,
-                    Email = user.Email,
-                    Password = user.Password,
-                };
-                return Service.Update(use);
-
-                return false;
-            }
+                User use = new User();
+                var existing = Service.GetUserById(user.ID);
+                existing.Age = user.Age;
+                existing.Email = user.Email;
+                existing.Name = user.Name;
+                return Service.Update(existing);
+                }
             catch (Exception)
             {
 

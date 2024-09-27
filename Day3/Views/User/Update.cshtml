@@ -6,6 +6,7 @@
     ViewData["Title"] = "Update";
 }
 <form asp-action="Update" asp-controller="User">
+    <input type="hidden" asp-for="ID" />
     <div class="form-group">
         <label for="exampleInputEmail1">Name</label>
         <input asp-for="Name" type="text" class="form-control"  id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">

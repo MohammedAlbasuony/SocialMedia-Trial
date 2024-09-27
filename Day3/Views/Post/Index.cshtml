@@ -1,17 +1,15 @@
 ﻿@using SocialMedia.BLL.ModelVM
 @using SocialMedia.DAL.Entities
-@model List<GetAllUserVM>
+@model List<GetAllPostsVM>
 
-    
+
 <table id="myTable" class="table table-dark">
     <thead>
         <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Age</th>
-            <th scope="col">CreatedDate</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
             <th scope="col">Actions</th> <!-- Column for the buttons -->
-            
+
 
         </tr>
     </thead>
@@ -19,10 +17,8 @@
         @foreach (var item in Model)
         {
             <tr>
-                <th scope="row">@item.ID</th>
-                <td>@item.Name</td>
-                <td>@item.Age</td>
-                <td>@item.CreatedOn</td>
+                <th scope="row">@item.Title</th>
+                <td>@item.Description</td>
                 <td>
                     <!-- Edit Button -->
                     @Html.ActionLink("Edit", "Update", new { id = item.ID }, new { @class = "btn btn-secondary" })

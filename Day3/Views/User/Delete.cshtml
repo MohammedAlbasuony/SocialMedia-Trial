@@ -1,0 +1,18 @@
+﻿@using SocialMedia.BLL.ModelVM
+@using SocialMedia.DAL.Entities
+@model User
+<h2>Delete Confirmation</h2>
+
+<p>Are you sure you want to delete the following person?</p>
+
+<div>
+    <h4>@Model.Name</h4>
+    <p>Age: @Model.Age</p>
+    <p>Created On: @Model.CreatedOn</p>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="ID" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

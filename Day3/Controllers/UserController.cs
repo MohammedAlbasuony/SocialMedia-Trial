@@ -1,10 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using SocialMedia.BLL.ModelVM;
 using SocialMedia.BLL.Service.Abstraction;
 using SocialMedia.BLL.Service.Implement;
-using SocialMedia.DAL.DB;
-using SocialMedia.DAL.Entities;
 
 namespace SocialMedia.PLL.Controllers
 {
@@ -14,7 +11,7 @@ namespace SocialMedia.PLL.Controllers
 
         public IActionResult Index()
         {
-           
+
             return View(userService.GetUsers());
         }
         [HttpGet]
@@ -39,7 +36,14 @@ namespace SocialMedia.PLL.Controllers
             if (ModelState.IsValid)
             {
                 var result = userService.GetUserById(id);
-                return View(result);          
+                var userViewModel = new UpdateUserVM
+                {
+                    Name = result.Name,
+                    Age = result.Age,
+                    Email = result.Email,
+                    Password = result.Password,
+                };
+                return View(userViewModel);
             }
             return View();
         }
@@ -48,12 +52,26 @@ namespace SocialMedia.PLL.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = userService.GetUserById(user.ID);
-
                 userService.Update(user);
                 return RedirectToAction("Index");
             }
             return View();
         }
+        public IActionResult Delete(int id)
+        {
+            var person = userService.GetUserById(id);
+
+            return View(person);
+        }
+
+        // POST: Person/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            userService.Delete(id);
+            return RedirectToAction(nameof(Index)); // Redirect to the index or listing view
+        }
+
     }
 }

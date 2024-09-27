@@ -1,0 +1,25 @@
+﻿@using SocialMedia.BLL.ModelVM
+@using SocialMedia.DAL.Entities
+@model UpdatePostVM
+@{
+
+    ViewData["Title"] = "Update";
+}
+<form asp-action="Update" asp-controller="User">
+    <input type="hidden" asp-for="ID" />
+    <div class="form-group">
+        <label for="exampleInputEmail1">Title</label>
+        <input asp-for="Title" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Title">
+        <span class="text-danger" asp-validation-for="Title"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Description</label>
+        <input asp-for="Description" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Description">
+        <span class="text-danger" asp-validation-for="Description"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<script src="~/lib/jquery-validation/dist/additional-methods.min.js"></script>
+<script src="~/lib/jquery-validation/dist/additional-methods.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
